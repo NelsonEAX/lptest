@@ -1,142 +1,91 @@
 <template>
-  <v-container>
-    <v-layout
-      text-center
-      wrap
+  <v-content>
+    <v-container
+      class="fill-height"
+      fluid
     >
-      <v-flex xs12>
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        ></v-img>
-      </v-flex>
-
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-      </v-flex>
-
-      <v-flex
-        mb-5
-        xs12
+      <v-row
+        align="center"
+        justify="center"
       >
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+        <v-col
+          cols="12"
+          sm="8"
+          md="4"
+        >
+          <v-card class="elevation-12">
+            <v-toolbar
+              color="primary"
+              dark
+              flat
+            >
+              <v-toolbar-title>Login form</v-toolbar-title>
+              <div class="flex-grow-1"></div>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    :href="source"
+                    icon
+                    large
+                    target="_blank"
+                    v-on="on"
+                  >
+                    <v-icon>mdi-code-tags</v-icon>
+                  </v-btn>
+                </template>
+                <span>Source</span>
+              </v-tooltip>
+              <v-tooltip right>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    icon
+                    large
+                    href="https://codepen.io/johnjleider/pen/pMvGQO"
+                    target="_blank"
+                    v-on="on"
+                  >
+                    <v-icon>mdi-codepen</v-icon>
+                  </v-btn>
+                </template>
+                <span>Codepen</span>
+              </v-tooltip>
+            </v-toolbar>
+            <v-card-text>
+              <v-form>
+                <v-text-field
+                  label="Login"
+                  name="login"
+                  prepend-icon="person"
+                  type="text"
+                ></v-text-field>
 
-        <v-layout justify-center>
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-container>
+                <v-text-field
+                  id="password"
+                  label="Password"
+                  name="password"
+                  prepend-icon="lock"
+                  type="password"
+                ></v-text-field>
+              </v-form>
+            </v-card-text>
+            <v-card-actions>
+              <div class="flex-grow-1"></div>
+              <v-btn color="primary">Login</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-content>
 </template>
 
 <script>
 export default {
+  props: {
+    source: String,
+  },
   data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-      },
-    ],
+    drawer: null,
   }),
 };
 </script>
