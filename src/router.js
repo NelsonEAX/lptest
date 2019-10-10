@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
 
 Vue.use(Router);
 
@@ -11,17 +10,17 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: () => import('./views/home.vue'),
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      component: () => import('./views/about.vue'),
     },
     {
       path: '/chat/:id',
       name: 'chat',
-      component: () => import(/* webpackChunkName: "about" */ './views/Chat.vue'),
+      component: () => import('./views/chat.vue'),
     },
   ],
 });
