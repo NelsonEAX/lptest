@@ -14,10 +14,11 @@
         <span class="mr-2">Latest Release</span>
       </v-btn>
     </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <router-view>
+      <v-content>
+        <HelloWorld/>
+      </v-content>
+    </router-view>
   </v-app>
 </template>
 
