@@ -6,19 +6,19 @@ const Data = [
     parts: [
       {
         id: 1,
-        author: 'vasiliy',
+        author: 'Vasiliy',
         text: 'Привет, как дела?',
         created: '2019-08-01 23:59',
       },
       {
         id: 2,
-        author: 'petya',
+        author: 'Petr',
         created: '2019-08-02 01:20',
         text: 'Привет, все хорошо, спасибо!',
       },
       {
         id: 3,
-        author: 'petya',
+        author: 'Petr',
         created: '2019-08-02 05:20',
         text: 'А у тебя?',
       },
@@ -31,19 +31,19 @@ const Data = [
     parts: [
       {
         id: 1,
-        author: 'petr',
+        author: 'Petr',
         created: '2019-08-06 12:20',
         text: 'Здравствуйте, тут есть кто-нибудь?',
       },
       {
         id: 2,
-        author: 'vasiliy',
+        author: 'Vasiliy',
         created: '2019-08-06 12:34',
         text: 'Да, я вас слушаю!',
       },
       {
         id: 3,
-        author: 'petr',
+        author: 'Petr',
         created: '2019-08-06 12:38',
         text: 'Помогите мне настроить домен!',
       },
@@ -56,25 +56,25 @@ const Data = [
     parts: [
       {
         id: 1,
-        author: 'igor',
+        author: 'Igor',
         created: '2019-08-06 12:20',
         text: 'Здравствуйте, тут есть кто-нибудь?',
       },
       {
         id: 2,
-        author: 'vasiliy',
+        author: 'Vasiliy',
         created: '2019-08-06 12:34',
         text: 'Да, я вас слушаю!',
       },
       {
         id: 3,
-        author: 'igor',
+        author: 'Igor',
         created: '2019-08-06 12:38',
         text: 'Какое там было длинное сообщение',
       },
       {
         id: 4,
-        author: 'vasiliy',
+        author: 'Vasiliy',
         created: '2019-08-06 12:40',
         text: '"Morbi hac eligendi totam? Elementum mi facilis aliquet id turpis '
           + 'ultrices mollitia porttitor praesentium animi ullamco eleifend'
@@ -82,7 +82,7 @@ const Data = [
       },
       {
         id: 5,
-        author: 'igor',
+        author: 'Igor',
         created: '2019-08-06 12:41',
         text: '"Morbi hac eligendi totam? Elementum mi facilis aliquet id turpis '
           + 'ultrices mollitia porttitor praesentium animi ullamco eleifend scelerisque, '
@@ -90,7 +90,7 @@ const Data = [
       },
       {
         id: 6,
-        author: 'vasiliy',
+        author: 'Vasiliy',
         created: '2019-08-06 12:42',
         text: 'Так точно! "Morbi hac eligendi totam? Elementum mi facilis aliquet id turpis '
           + 'ultrices  mollitia porttitor praesentium animi ullamco eleifend scelerisque, '
@@ -98,7 +98,7 @@ const Data = [
       },
       {
         id: 7,
-        author: 'igor',
+        author: 'Igor',
         created: '2019-08-06 12:43',
         text: 'Благодарю!!',
       },
@@ -116,9 +116,7 @@ const getChatsDataApi = (userName) => {
   });
 };
 
-const getChatInfo = (userId) => {
-  return userId;
-};
+const getChatInfo = userId => userId;
 
 export {
   getChatsDataApi,

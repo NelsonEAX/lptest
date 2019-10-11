@@ -1,16 +1,55 @@
 <template>
-  <div class="contact contact--active">
-    <div class="contact__title">Привет!</div>
-    <div class="contact__date">12 МАЯ 2023</div>
-    <div class="contact__message">Pharetra, eum ut primis orci labore velit?
-      Ridiculus. Officia mattis pariatur justo </div>
+  <div
+    class="contact"
+    v-bind:class="{ 'contact--active': chat.id == chatId }"
+    v-on:click="switchChat(chat.id)"
+  >
+    <div class="contact__title">{{ chat.subject }}</div>
+    <div class="contact__date">{{ getBeautyDate(chat.created) }}</div>
+    <div class="contact__message">{{ chat.parts[0].text }}</div>
     <div class="contact__divider"/>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Contact',
+  props: {
+    chat: {
+      type: Object,
+      default: () => ({
+        id: 0,
+        subject: '',
+        created: '',
+        parts: [],
+      }),
+    },
+  },
+  computed: {
+    ...mapGetters([
+      'chatId',
+    ]),
+  },
+  methods: {
+    switchChat(newChatId) {
+      // При попытке перейти в тот же чат - пресекаем
+      if (newChatId === this.chatId) {
+        return;
+      }
+
+      this.$router.push({ name: 'chat', params: { id: newChatId } });
+    },
+    getBeautyDate(date) {
+      const beautyDate = new Date(date);
+      return beautyDate.toLocaleString('ru', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+    },
+  },
 };
 </script>
 
@@ -22,7 +61,7 @@ export default {
   }
   .contact__title{
     position: absolute;
-    width: 54px;
+    width: 180px;
     height: 20px;
     left: 23px;
     top: 21px;
@@ -32,9 +71,9 @@ export default {
   }
   .contact__date{
     position: absolute;
-    width: 67px;
+    width: 100px;
     height: 15px;
-    left: 213px;
+    left: 180px;
     top: 21px;
     font-size: 10px;
     line-height: 14px;

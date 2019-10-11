@@ -2,19 +2,21 @@
   <div class="contacts">
     <div class="contacts__header">
       <div class="contacts__title">Сообщения</div>
-      <div class="contacts__count">151</div>
+      <div class="contacts__count">{{ chatsMessageCount }}</div>
     </div>
     <div class="contacts__divider"/>
     <div class="contacts__body">
       <Contact
-        v-for="item in items"
-        :key="item.id"
+        v-for="chat in chatsData"
+        :key="chat.id"
+        :chat="chat"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Contact from './contact.vue';
 
 export default {
@@ -22,27 +24,16 @@ export default {
   components: {
     Contact,
   },
-  data: () => ({
-    items: [{
-      id: 0,
-    }, {
-      id: 1,
-    }, {
-      id: 2,
-    }, {
-      id: 3,
-    }, {
-      id: 4,
-    }, {
-      id: 5,
-    }, {
-      id: 6,
-    }, {
-      id: 7,
-    }, {
-      id: 8,
-    }],
-  }),
+  data: () => ({}),
+  computed: {
+    ...mapGetters([
+      'chatsData',
+      'chatsMessageCount',
+    ]),
+  },
+  mounted() {
+    console.log('mounted contacts.vue');
+  },
 };
 </script>
 

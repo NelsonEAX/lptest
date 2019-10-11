@@ -21,6 +21,7 @@ export default new Router({
       path: '/chat/:id',
       name: 'chat',
       component: () => import('./views/chat.vue'),
+      props: true,
     },
   ],
 });

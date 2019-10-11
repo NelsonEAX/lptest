@@ -29,6 +29,7 @@ export default {
     Posts,
     EntryField,
   },
+  mounted() {},
 };
 </script>
 

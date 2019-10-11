@@ -1,12 +1,20 @@
 <template>
   <div class="entry-field">
-    <input type="text" class="entry-field__message"/>
-    <div class="entry-field__send">
+    <textarea
+      placeholder="Введите текст..."
+      type="text"
+      class="entry-field__message"
+      v-model="message"
+    ></textarea>
+    <div
+      class="entry-field__send"
+      v-on:click="sendMessage()"
+    >
       <div class="entry-field__send-icon">
         <svg
           width="22"
-          height="18"
-          viewBox="0 0 22 18"
+          height="22"
+          viewBox="0 0 22 22"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -18,13 +26,47 @@
           11.4411L0.00936317 17.2563Z" fill="white"/>
         </svg>
       </div>
+      <Loader/>
     </div>
   </div>
 </template>
 
 <script>
+import Loader from '../../loader/loader.vue';
+
 export default {
   name: 'EntryField',
+  components: {
+    Loader,
+  },
+  data: () => ({
+    message: '',
+    dialog: false,
+  }),
+  methods: {
+    sendMessage() {
+      if (!this.message) {
+        return;
+      }
+      // this.dialog = true;
+      this.$store.dispatch('AddMessageToChat', { message: this.message })
+        .then((res) => {
+          console.log('then AddMessageToChat', res);
+        })
+        .catch((err) => {
+          console.warn(`AddMessageToChat error: ${err}`);
+        });
+
+      this.message = '';
+    },
+  },
+  /* watch: {
+    dialog (val) {
+      if (!val) return
+
+      setTimeout(() => (this.dialog = false), 4000)
+    }
+  }, */
 };
 </script>
 
@@ -34,8 +76,18 @@ export default {
     padding: 0px;
   }
   .entry-field__message{
-
+    width: 600px;
+    height: 80px;
+    resize: none;
+    font-size: 14px;
+    line-height: 141.62%;
   }
+  .entry-field__message::placeholder {
+    vertical-align: center;
+    font-size: 14px;
+    line-height: 141.62%;
+    color: #7D8790;
+   }
   .entry-field__send{
     position: absolute;
     width: 80px;
