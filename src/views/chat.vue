@@ -1,19 +1,9 @@
 <template>
-  <v-content class="test">
-    <v-container
-      class="fill-height"
-      fluid
-    >
-      <v-row
-        align="center"
-        justify="center"
-      >
-        <v-col
-          cols="12"
-          sm="8"
-          md="6"
-        >
-          <chat/>
+  <v-content>
+    <v-container class="fill-height" fluid>
+      <v-row align="center" justify="center">
+        <v-col cols="12" sm="8" md="6">
+          <Chat/>
         </v-col>
       </v-row>
     </v-container>
@@ -21,11 +11,11 @@
 </template>
 
 <script>
-import chat from '../components/chat/chat.vue';
+import Chat from '../components/chat/chat.vue';
 
 export default {
   components: {
-    chat,
+    Chat,
   },
 };
 </script>

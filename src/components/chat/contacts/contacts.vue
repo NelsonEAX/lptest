@@ -31,9 +31,6 @@ export default {
       'chatsMessageCount',
     ]),
   },
-  mounted() {
-    console.log('mounted contacts.vue');
-  },
 };
 </script>
 
@@ -49,7 +46,6 @@ export default {
     right: 67.33%;
     top: 3.34%;
     bottom: 93.88%;
-    /*font-family: TT Norms;*/
     font-size: 14px;
     line-height: 20px;
     color: #656B77;
@@ -60,7 +56,6 @@ export default {
     right: 57.33%;
     top: 3.34%;
     bottom: 93.88%;
-    /*font-family: TT Norms;*/
     font-size: 14px;
     line-height: 20px;
     color: #D2D8DE;

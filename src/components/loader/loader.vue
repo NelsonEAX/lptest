@@ -1,6 +1,9 @@
 <template>
   <div class="loader">
-    <div class="loader__icon">
+    <div
+      class="loader__icon"
+      v-bind:class="[ `loader__icon--${location}` ]"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="48"
@@ -20,6 +23,12 @@
 <script>
 export default {
   name: 'loader',
+  props: {
+    location: {
+      type: String,
+      default: 'send',
+    },
+  },
 };
 </script>
 
@@ -34,22 +43,30 @@ export default {
     align-items: center;
     align-content: center;
     justify-content: center;
-    overflow: auto;*/
+    overflow: auto;
     width: 100%;
     height: 100%;
-    position: relative;
+    position: relative;*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(98, 107, 115, 0.5);;
   }
   .loader__icon {
     animation: loader 1s infinite;
-
-    height: 100%;
     position: absolute;
-    top: 50%;
-    margin: -50px 0 0 0;
-
     width: 48px;
     height: 48px;
-
+  }
+  .loader__icon--posts {
+    top: 294px;
+    left: 316px;
+  }
+  .loader__icon--send {
+    top: 16px;
+    left: 16px;
   }
   @keyframes loader {
     from {

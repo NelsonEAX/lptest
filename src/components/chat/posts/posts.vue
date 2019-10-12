@@ -6,7 +6,10 @@
       :post="post"
       :from="userName === post.author"
     ></Post>
-    <Loader/>
+    <Loader
+      v-if="disablePosts"
+      location="posts"
+    />
   </div>
 </template>
 
@@ -26,6 +29,7 @@ export default {
     ...mapGetters([
       'chatPosts',
       'userName',
+      'disablePosts',
     ]),
   },
 };

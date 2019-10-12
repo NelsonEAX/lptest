@@ -38,7 +38,6 @@ export default {
       if (newChatId === this.chatId) {
         return;
       }
-
       this.$router.push({ name: 'chat', params: { id: newChatId } });
     },
     getBeautyDate(date) {

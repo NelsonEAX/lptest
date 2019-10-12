@@ -13,9 +13,10 @@ export default new Router({
       component: () => import('./views/home.vue'),
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/about.vue'),
+      path: '/chat/',
+      name: 'emptychat',
+      component: () => import('./views/chat.vue'),
+
     },
     {
       path: '/chat/:id',
