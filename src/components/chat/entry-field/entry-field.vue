@@ -4,7 +4,7 @@
       type="text"
       class="entry-field__message"
       v-model="message"
-      :disabled="disableSend || chatId === -1"
+      :disabled="disableSend || disablePosts || chatId === -1"
       :placeholder="placeholder()"
     ></textarea>
     <div class="entry-field__button">
@@ -56,6 +56,7 @@ export default {
   computed: {
     ...mapGetters([
       'disableSend',
+      'disablePosts',
       'chatId',
     ]),
   },
@@ -67,9 +68,11 @@ export default {
       // this.dialog = true;
       this.$store.dispatch('AddMessageToChat', { message: this.message })
         .then((res) => {
+          // eslint-disable-next-line
           console.log('then AddMessageToChat', res);
         })
         .catch((err) => {
+          // eslint-disable-next-line
           console.warn(`AddMessageToChat error: ${err}`);
         });
 
@@ -77,7 +80,8 @@ export default {
     },
     placeholder() {
       if (this.chatId === -1) return 'Необходимо выбрать чат';
-      if (this.disableSend) return 'Идёт отправка сообщения..';
+      if (this.disableSend) return 'Идёт отправка сообщения...';
+      if (this.disablePosts) return 'Информация о чате загружается...';
       return 'Введите текст...';
     },
   },

@@ -30,12 +30,13 @@ export default {
   computed: {
     ...mapGetters([
       'chatId',
+      'disableSend',
     ]),
   },
   methods: {
     switchChat(newChatId) {
       // При попытке перейти в тот же чат - пресекаем
-      if (newChatId === this.chatId) {
+      if (newChatId === this.chatId || this.disableSend) {
         return;
       }
       this.$router.push({ name: 'chat', params: { id: newChatId } });

@@ -107,6 +107,7 @@ const Data = [
 ];
 
 const getChatsDataApi = (userName) => {
+  // eslint-disable-next-line
   console.log(`[getChatInfo] userName ${userName}`);
   return new Promise((resolve, reject) => {
     if (userName) {

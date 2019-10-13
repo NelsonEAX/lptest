@@ -27,31 +27,38 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_USER_NAME: (state, payload) => {
+      // eslint-disable-next-line
       console.log('mutations: SET_USER_NAME', payload);
       state.userName = payload.userName || '';
     },
     SET_CHATS_DATA: (state, payload) => {
+      // eslint-disable-next-line
       console.log('mutations: SET_CHATS_DATA', payload);
       state.chatsData = payload.data || [];
     },
     SET_CHAT_ID: (state, payload) => {
+      // eslint-disable-next-line
       console.log('mutations: SET_CHAT_ID', payload);
       state.chatId = parseInt(payload.chatId, 10) || 0;
     },
     SET_DISABLE_POSTS: (state, payload) => {
+      // eslint-disable-next-line
       console.log('mutations: SET_DISABLE_POSTS', payload);
       state.disablePosts = payload.state;
     },
     SET_DISABLE_SEND: (state, payload) => {
+      // eslint-disable-next-line
       console.log('mutations: SET_DISABLE_SEND', payload);
       state.disableSend = payload.state;
     },
     SET_CHAT_POSTS: (state) => {
+      // eslint-disable-next-line
       console.log('mutations: SET_CHAT_POSTS');
       const posts = state.chatsData.find(chat => chat.id === state.chatId);
       state.chatPosts = (posts || { parts: [] }).parts;
     },
     ADD_MESSAGE_TO_CHAT: (state, payload) => {
+      // eslint-disable-next-line
       console.log('mutations: ADD_MESSAGE_TO_CHAT', payload);
       const currentChat = state.chatsData.find(chat => chat.id === state.chatId);
       if (!currentChat) {
@@ -67,6 +74,7 @@ export default new Vuex.Store({
   },
   actions: {
     SetUserName: async (context, payload) => {
+      // eslint-disable-next-line
       console.log('actions: SetUserName', payload);
 
       if (payload.userName) {
@@ -81,6 +89,7 @@ export default new Vuex.Store({
       }
     },
     SetChatId: async (context, payload) => {
+      // eslint-disable-next-line
       console.log('actions: SetChatId', payload);
 
       context.commit('SET_DISABLE_POSTS', { state: true });
@@ -95,6 +104,7 @@ export default new Vuex.Store({
       throw new Error('Нет информации о id чата');
     },
     SetChatsData: async (context) => {
+      // eslint-disable-next-line
       console.log('actions: SetChatsData');
 
       await getChatsDataApi(context.state.userName).then((response) => {
@@ -109,6 +119,7 @@ export default new Vuex.Store({
       });
     },
     AddMessageToChat: async (context, payload) => {
+      // eslint-disable-next-line
       console.log('actions: AddMessageToChat', payload);
 
       context.commit('SET_DISABLE_SEND', { state: true });

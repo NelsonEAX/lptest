@@ -29,7 +29,18 @@ export default {
     Posts,
     EntryField,
   },
-  mounted() {},
+  mounted() {
+    // Начальная установка данных
+    this.$store.dispatch('SetUserName', { userName: 'Vasiliy' })
+      .then((res) => {
+        // eslint-disable-next-line
+        console.log('then SetUserName', res);
+      })
+      .catch((err) => {
+        // eslint-disable-next-line
+        console.warn(`SetUserName error: ${err}`);
+      });
+  },
 };
 </script>
 
