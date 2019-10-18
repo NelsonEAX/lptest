@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .chat{
     position: relative;
     height: 719px;

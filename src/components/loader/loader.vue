@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .loader {
     /*width: 100%;
     height: 100%;

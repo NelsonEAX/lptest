@@ -88,7 +88,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .entry-field{
     position: relative;
     padding: 0px;

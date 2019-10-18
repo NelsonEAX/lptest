@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .post{
     position: relative;
     bottom:0;

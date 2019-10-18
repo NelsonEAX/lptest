@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .contacts{
     position: relative;
     width: 300px;
