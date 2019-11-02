@@ -9,20 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('./views/home.vue'),
-    },
-    {
-      path: '/chat/',
-      name: 'emptychat',
-      component: () => import('./views/chat.vue'),
-
-    },
-    {
-      path: '/chat/:id',
-      name: 'chat',
-      component: () => import('./views/chat.vue'),
-      props: true,
+      name: 'table',
+      component: () => import('./views/table.vue'),
     },
   ],
 });
